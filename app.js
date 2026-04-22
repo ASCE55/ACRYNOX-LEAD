@@ -1,3 +1,38 @@
+// Login Elements
+const loginContainer = document.getElementById('login-container');
+const mainApp = document.getElementById('main-app');
+const loginBtn = document.getElementById('login-btn');
+const loginUsernameInput = document.getElementById('login-username');
+const loginPasswordInput = document.getElementById('login-password');
+const loginError = document.getElementById('login-error');
+
+// Hardcoded Credentials
+const validUsers = [
+    { name: 'max', pass: 'maxmax123' },
+    { name: 'common', pass: 'Q!W@E#R$T%' }
+];
+
+loginBtn.addEventListener('click', handleLogin);
+loginPasswordInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleLogin(); });
+
+function handleLogin() {
+    const user = loginUsernameInput.value.trim();
+    const pass = loginPasswordInput.value;
+
+    const isValid = validUsers.some(u => u.name === user && u.pass === pass);
+
+    if (isValid) {
+        loginContainer.classList.add('hidden');
+        mainApp.classList.remove('hidden');
+    } else {
+        loginError.classList.remove('hidden');
+        loginContainer.style.transform = 'translateX(5px)';
+        setTimeout(() => loginContainer.style.transform = 'translateX(-5px)', 100);
+        setTimeout(() => loginContainer.style.transform = 'translateX(5px)', 200);
+        setTimeout(() => loginContainer.style.transform = 'translateX(0)', 300);
+    }
+}
+
 // DOM Elements
 const searchBtn = document.getElementById('search-btn');
 const locationInput = document.getElementById('location-input');
