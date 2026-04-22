@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadGenius | Professional Web Client Finder</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-grid"></div>
+
+    <main class="app-container">
+        <header class="app-header">
+            <div class="logo-container">
+                <i data-lucide="radar" class="logo-icon"></i>
+                <h1 class="logo-text">ACRYNOX<span>Client Finder</span></h1>
+            </div>
+            <p class="subtitle">Find highly-rated businesses without websites </p>
+            
+            <div class="api-toggle-container">
+                <span class="toggle-label">Mock Data Mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="api-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-label active" id="live-label">Live API Mode</span>
+            </div>
+        </header>
+
+        <section class="search-section glass-panel">
+            <div class="input-group">
+                <i data-lucide="map-pin" class="input-icon"></i>
+                <input type="text" id="location-input" placeholder="Enter Location (e.g., Erode, Tamil Nadu)" value="Erode">
+            </div>
+            
+            <div class="input-group">
+                <i data-lucide="briefcase" class="input-icon"></i>
+                <select id="category-select">
+                    <option value="restaurant">Restaurants & Cafes</option>
+                    <option value="beauty_salon">Salons & Spas</option>
+                    <option value="gym">Gyms & Fitness Centers</option>
+                    <option value="plumber">Plumbers & Electricians</option>
+                    <option value="store">Retail Stores</option>
+                    <option value="hospital">Hospitals & Clinics</option>
+                </select>
+            </div>
+
+            <button id="search-btn" class="primary-btn">
+                <i data-lucide="search"></i>
+                <span>Scan for Leads</span>
+            </button>
+        </section>
+
+        <section class="api-key-section hidden" id="api-key-container">
+            <div class="glass-panel alert-panel">
+                <i data-lucide="key" class="alert-icon"></i>
+                <div class="alert-content">
+                    <h3>Google Places API Key Required</h3>
+                    <p>To use Live API Mode, enter your API key below. This is strictly local and never sent to our servers.</p>
+                    <input type="password" id="api-key-input" placeholder="AIzaSy...">
+                </div>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div class="results-header">
+                <h2 id="results-title">Awaiting Search...</h2>
+                <div class="stats-badges hidden" id="stats-container">
+                    <span class="badge badge-success"><i data-lucide="check-circle"></i> <span id="leads-count">0</span> Leads Found</span>
+                </div>
+            </div>
+
+            <div id="loading-state" class="loading-state hidden">
+                <div class="spinner"></div>
+                <p>Scanning the area for businesses without websites...</p>
+            </div>
+
+            <div id="results-grid" class="results-grid">
+                <!-- Cards will be injected here by app.js -->
+            </div>
+            
+            <div id="empty-state" class="empty-state">
+                <i data-lucide="target" class="empty-icon"></i>
+                <p>Enter a location and category to start finding potential clients.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
