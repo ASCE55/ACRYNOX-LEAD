@@ -15,7 +15,35 @@
 <body>
     <div class="background-grid"></div>
 
-    <main class="app-container">
+    <!-- Login System -->
+    <div id="login-container" class="login-wrapper">
+        <div class="glass-panel login-panel">
+            <div class="logo-container" style="margin-bottom: 1rem;">
+                <i data-lucide="radar" class="logo-icon"></i>
+                <h1 class="logo-text" style="font-size: 2.5rem;">ACRYNOX</h1>
+            </div>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">Restricted Access. Please log in.</p>
+            
+            <div class="input-group" style="margin-bottom: 1rem;">
+                <i data-lucide="user" class="input-icon"></i>
+                <input type="text" id="login-username" placeholder="Username">
+            </div>
+            
+            <div class="input-group" style="margin-bottom: 1.5rem;">
+                <i data-lucide="lock" class="input-icon"></i>
+                <input type="password" id="login-password" placeholder="Password">
+            </div>
+            
+            <p id="login-error" class="hidden" style="color: var(--danger-color); text-align: center; margin-bottom: 1rem; font-size: 0.9rem; font-weight: 600;"><i data-lucide="alert-triangle" style="width:14px; height:14px; display:inline-block; vertical-align:middle;"></i> Invalid credentials</p>
+            
+            <button id="login-btn" class="primary-btn" style="width: 100%;">
+                <i data-lucide="log-in"></i>
+                <span>Access Terminal</span>
+            </button>
+        </div>
+    </div>
+
+    <main class="app-container hidden" id="main-app">
         <header class="app-header">
             <div class="logo-container">
                 <i data-lucide="radar" class="logo-icon"></i>
