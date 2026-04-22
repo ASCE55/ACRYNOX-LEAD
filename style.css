@@ -640,3 +640,27 @@ input:checked + .slider:before {
         font-size: 2.2rem;
     }
 }
+
+/* --- Login System --- */
+.login-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    padding: 1rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.login-panel {
+    width: 100%;
+    max-width: 420px;
+    padding: 3rem 2rem;
+    background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(10,10,10,0.95));
+    border-top: 1px solid var(--primary-color);
+}
+
